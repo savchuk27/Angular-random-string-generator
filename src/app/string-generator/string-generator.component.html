@@ -1,0 +1,12 @@
+<div>
+    <div *ngIf="{value: randomStringGenerator(5)} as str">
+        <p *ngIf="!(str.value == str.value.split('').reverse().join('')) &&
+                  !(str.value.match('/^[0-9]+$/')) &&
+                  !(str.value.includes(0))">
+            {{str.value}} - does not match any of the conditions
+        </p>
+        <p *ngIf="str.value == str.value.split('').reverse().join('')" [ngStyle]="{'color':'red'}">{{str.value}}</p>
+        <p *ngIf="str.value.match('/^[0-9]+$/')" [ngStyle]="{'color':'blue'}">{{str.value}}</p>
+        <p *ngIf="str.value.includes(0)"></p>
+    </div>
+</div>
